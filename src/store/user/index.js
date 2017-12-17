@@ -68,6 +68,13 @@ export default {
           console.log(error)
         })
     },
+    autoSignIn ({commit}, payload) {
+      commit('setUser', {
+        id: payload.uid,
+        registeredGames: [],
+        fbKeys: {}
+      })
+    },
     registerUserForGame ({commit, getters}, payload) {
       commit('setLoading', true)
       const user = getters.user
@@ -101,13 +108,6 @@ export default {
           // commit('setError', error)
           console.log(error)
         })
-    },
-    autoSignIn ({commit}, payload) {
-      commit('setUser', {
-        id: payload.uid,
-        registeredGames: [],
-        fbKeys: {}
-      })
     },
     fetchUserData ({commit, getters}) {
       commit('setLoading', true)

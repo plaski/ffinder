@@ -14,7 +14,7 @@ signIn to register gdy user nie jest zalogowany na widoku gry
 filtrowanie gier
 profil usera, mozliwosc edycji danych
 zmiana przechowywania firebase key i game id
-zablokowac mozliwosc wyboru dni i godzin wstecz
+zablokowac mozliwosc wyboru dni wstecz
 
 
 przy odswiezeniu przeskakuje na strone logowania i rozpoznaje uzytkownika, ale tylko na tych stronach gdzie jest auth-guard
