@@ -15,5 +15,4 @@ profil usera, mozliwosc edycji danych
 zmiana przechowywania firebase key i game id
 zablokowac mozliwosc wyboru dni wstecz
 
-
-przy odswiezeniu przeskakuje na strone logowania i rozpoznaje uzytkownika, ale tylko na tych stronach gdzie jest auth-guard
+guard niby dziala ale do poprawy
