@@ -1,7 +1,6 @@
 
 
 zapisywanie takze username;
-animacje;
 obrazek przy liscie gier;
 mapa przy pojedynczej grze;
 na stronie gry zmiana napisu 'zapisz sie na gre/zaloguj/edytuj'
