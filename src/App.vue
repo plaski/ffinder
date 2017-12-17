@@ -98,6 +98,6 @@
     transition: transform .7s cubic-bezier(.75,-0.5,0,1.75);
   }
   .slide-enter, .slide-leave-to {
-    transform: translateX(100%) ;
+    transform: translateX(150%) ;
   }
 </style>
