@@ -45,7 +45,12 @@
                     :rules="[() => editedDate != null || '']"
                     v-model="editedDate"
                   ></v-text-field>
-                  <v-date-picker v-model="editedDate" no-title scrollable autosave>
+                  <v-date-picker
+                    v-model="editedDate"
+                    no-title
+                    scrollable
+                    autosave
+                    :allowed-dates="allowedDates">
                   </v-date-picker>
                 </v-menu>
                 <v-menu
@@ -67,7 +72,13 @@
                     :rules="[() => editedTime != null || '']"
                     v-model="editedTime"
                   ></v-text-field>
-                  <v-time-picker v-model="editedTime" format="24hr" no-title autosave></v-time-picker>
+                  <v-time-picker
+                    v-model="editedTime"
+                    format="24hr"
+                    no-title
+                    autosave
+                    :allowed-minutes="allowedTimes.minutes"
+                    ></v-time-picker>
                 </v-menu>
                 <v-text-field
                 class="accent--text"
@@ -107,6 +118,14 @@ export default {
       editedDescription: this.game.description,
       dialogIsOpen: false,
       datePicker: false,
+      allowedDates: {
+        min: null
+      },
+      allowedTimes: {
+        minutes: function (value) {
+          return value % 15 === 0
+        }
+      },
       timePicker: false
     }
   },
@@ -124,6 +143,10 @@ export default {
         description: this.editedDescription
       })
     }
+  },
+  mounted () {
+    const date = new Date()
+    this.allowedDates.min = date.toISOString().substr(0, 10)
   }
 }
 </script>

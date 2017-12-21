@@ -1,18 +1,20 @@
 
 
 zapisywanie takze username;
+profil usera, mozliwosc edycji danych
+zmiana przechowywania firebase key i game id
+
 obrazek przy liscie gier;
 mapa przy pojedynczej grze;
 na stronie gry zmiana napisu 'zapisz sie na gre/zaloguj/edytuj'
+signIn to register gdy user nie jest zalogowany na widoku gry
+
 loading na guzikach nawet jak nie nacisne przy ladowaniu
 wszedzie dolozyc ladowanie przed wyswietleniem zawartosci
 clearError sprobowac dodac globalnie
-?zmienic? edycje daty i godziny w edycji (prosty wybor, nie taki jak przy tworzeniu gry)
 ?przyciski register i view game jako osobny komponent?
-signIn to register gdy user nie jest zalogowany na widoku gry
+
+?zmienic? edycje daty i godziny w edycji (prosty wybor, nie taki jak przy tworzeniu gry)
 filtrowanie gier
-profil usera, mozliwosc edycji danych
-zmiana przechowywania firebase key i game id
-zablokowac mozliwosc wyboru dni wstecz
 
 guard niby dziala ale do poprawy

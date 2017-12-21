@@ -36,7 +36,12 @@
                 :rules="[() => date != null || '']"
                 v-model="date"
               ></v-text-field>
-              <v-date-picker v-model="date" no-title scrollable autosave>
+              <v-date-picker
+                v-model="date"
+                no-title
+                scrollable
+                autosave
+                :allowed-dates="allowedDates">
               </v-date-picker>
             </v-menu>
             <v-menu
@@ -61,8 +66,14 @@
                 :rules="[() => time != null || '']"
                 v-model="time"
               ></v-text-field>
-              <v-time-picker v-model="time" format="24hr" no-title autosave></v-time-picker>
-            </v-menu>
+              <v-time-picker
+                v-model="time"
+                format="24hr"
+                no-title
+                autosave
+                :allowed-minutes="allowedTimes.minutes"
+               ></v-time-picker>
+           </v-menu>
             <v-text-field
               class="accent--text"
               name="description"
@@ -90,6 +101,14 @@ export default {
       time: null,
       description: '',
       datePicker: false,
+      allowedDates: {
+        min: null
+      },
+      allowedTimes: {
+        minutes: function (value) {
+          return value % 15 === 0
+        }
+      },
       timePicker: false
     }
   },
@@ -112,6 +131,10 @@ export default {
       this.$store.dispatch('createGame', gameData)
       this.$router.push('/games')
     }
+  },
+  mounted () {
+    const date = new Date()
+    this.allowedDates.min = date.toISOString().substr(0, 10)
   }
 }
 </script>
