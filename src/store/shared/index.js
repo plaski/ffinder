@@ -17,6 +17,9 @@ export default {
   actions: {
     clearError ({commit}) {
       commit('clearError')
+    },
+    clearLoading ({commit}) {
+      commit('setLoading', false)
     }
   },
   getters: {

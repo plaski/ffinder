@@ -87,6 +87,7 @@ export default {
     }
   },
   created () {
+    this.$store.dispatch('clearLoading')
     this.$store.dispatch('clearError')
   }
 }

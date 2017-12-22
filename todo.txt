@@ -10,7 +10,6 @@ na stronie gry zmiana napisu 'zapisz sie na gre/zaloguj/edytuj'
 signIn to register gdy user nie jest zalogowany na widoku gry
 kasowanie gry
 
-loading na guzikach nawet jak nie nacisne przy ladowaniu
 wszedzie dolozyc ladowanie przed wyswietleniem zawartosci
 clearError sprobowac dodac globalnie
 ?przyciski register i view game jako osobny komponent?
