@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-dialog width="300px" persistent v-model="dialogIsOpen">
+    <v-dialog width="350px" persistent v-model="dialogIsOpen">
       <v-btn
         flat
         class="error"
@@ -11,6 +11,8 @@
             <v-flex xs12>
               <v-card-title>
                 <span class="headline">Edit Game</span>
+                <v-spacer></v-spacer>
+                <app-delete-game-dialog :gameId="gameId"></app-delete-game-dialog>
               </v-card-title>
             </v-flex>
           </v-layout>
@@ -108,8 +110,17 @@
 </template>
 
 <script>
+import DeleteGameDialog from './DeleteGameDialog.vue'
 export default {
+  components: {
+    'app-delete-game-dialog': DeleteGameDialog
+  },
   props: ['game'],
+  computed: {
+    gameId () {
+      return this.game.id
+    }
+  },
   data () {
     return {
       editedLocation: this.game.location,

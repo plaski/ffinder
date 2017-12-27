@@ -1,4 +1,5 @@
 import * as firebase from 'firebase'
+import router from '@/router'
 
 export default {
   state: {
@@ -10,6 +11,10 @@ export default {
     },
     createGame (state, payload) {
       state.loadedGames.push(payload)
+    },
+    deleteGame (state, payload) {
+      const index = state.loadedGames.indexOf(payload)
+      state.loadedGames.splice(index, 1)
     },
     updateGame (state, payload) {
       const game = state.loadedGames.find(game => {
@@ -71,6 +76,19 @@ export default {
           })
         })
         .catch((error) => {
+          console.log(error)
+        })
+    },
+    deleteGame ({commit}, payload) {
+      // commit('setLoading', true)
+      firebase.database().ref('games').child(payload).remove()
+        .then(() => {
+          router.push('/games')
+          // commit('setLoading', false)
+          commit('deleteGame', payload)
+        })
+        .catch(error => {
+          // commit('setLoading', false)
           console.log(error)
         })
     },
