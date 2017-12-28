@@ -21,14 +21,14 @@
             <div>{{ game.description }}</div>
           </v-card-text>
           <v-card-text>
-            <div>{{ game.playersNumber }}</div>
+            <div>Still {{ game.playersNumber }} <span v-if="game.playersNumber === '1'">place</span><span v-else>places</span> left!</div>
           </v-card-text>
           <v-card-actions>
+            <v-spacer></v-spacer>
             <v-btn
               flat
               class="white--text"
               :to="'/games/' + game.id">View Details</v-btn>
-            <v-spacer></v-spacer>
           </v-card-actions>
         </v-card>
       </v-flex>

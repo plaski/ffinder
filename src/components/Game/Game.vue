@@ -14,15 +14,23 @@
       <v-flex xs12>
         <v-card>
           <v-card-title>
-            <h1 class="error--text">{{ game.location }} | {{ game.date | date }} | {{ game.time }}</h1>
+            <h1 class="secondary--text">{{ game.location }} | {{ game.date | date }} | {{ game.time }}</h1>
             <template v-if="userIsCreator">
               <v-spacer></v-spacer>
               <app-edit-game-dialog :game="game"></app-edit-game-dialog>
             </template>
           </v-card-title>
           <v-layout>
-            <v-flex xs8>
+            <v-flex xs4>
+              <v-card-title>
+                <h2 class="secondary--text">Game description</h2>
+              </v-card-title>
               <v-card-text>{{ game.description }}</v-card-text>
+            </v-flex>
+            <v-flex xs4>
+              <v-card-title>
+                <h2 class="secondary--text">Who is playing</h2>
+              </v-card-title>
               <v-card-text>{{ game.playersNumber }}</v-card-text>
             </v-flex>
             <v-flex xs4>

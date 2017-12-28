@@ -87,7 +87,6 @@
               type="number"
               min="1"
               max="21"
-              value="1"
               label="Number of players"
               prepend-icon="format_list_numbered"
               :rules="[() => playersNumber % 1 === 0 || '']"

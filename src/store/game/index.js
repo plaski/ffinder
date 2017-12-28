@@ -13,7 +13,11 @@ export default {
       state.loadedGames.push(payload)
     },
     deleteGame (state, payload) {
-      const index = state.loadedGames.indexOf(payload)
+      console.log('payload', payload)
+      console.log(state.loadedGames)
+      const gameToDelete = state.loadedGames.find(function (gameToDelete) { return gameToDelete.id === payload })
+      const index = state.loadedGames.indexOf(gameToDelete)
+      console.log('index wynosi', index)
       state.loadedGames.splice(index, 1)
     },
     updateGame (state, payload) {
