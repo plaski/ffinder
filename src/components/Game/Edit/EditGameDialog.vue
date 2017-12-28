@@ -2,8 +2,8 @@
   <div>
     <v-dialog width="350px" persistent v-model="dialogIsOpen">
       <v-btn
-        flat
-        class="error"
+        outline
+        class="secondary--text"
         slot="activator">Edit</v-btn>
       <v-card>
         <v-container>
@@ -98,8 +98,8 @@
             <v-flex xs12>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn flat @click.native="dialogIsOpen = false">Cancel</v-btn>
-                <v-btn flat @click.native="onSaveChanges">Save</v-btn>
+                <v-btn outline @click.native="dialogIsOpen = false">Cancel</v-btn>
+                <v-btn outline @click.native="onSaveChanges">Save</v-btn>
               </v-card-actions>
             </v-flex>
           </v-layout>

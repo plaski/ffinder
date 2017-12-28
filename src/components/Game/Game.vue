@@ -13,35 +13,43 @@
     <v-layout row wrap v-else>
       <v-flex xs12>
         <v-card>
-          <v-card-title>
-            <h1 class="secondary--text">{{ game.location }} | {{ game.date | date }} | {{ game.time }}</h1>
-            <template v-if="userIsCreator">
-              <v-spacer></v-spacer>
-              <app-edit-game-dialog :game="game"></app-edit-game-dialog>
-            </template>
-          </v-card-title>
           <v-layout>
-            <v-flex xs4>
-              <v-card-title>
-                <h2 class="secondary--text">Game description</h2>
-              </v-card-title>
-              <v-card-text>{{ game.description }}</v-card-text>
+            <v-flex xs8>
+              <v-layout>
+                <v-flex xs12>
+                  <v-card-title>
+                    <h1 class="secondary--text">{{ game.location }} | {{ game.date | date }} | {{ game.time }}</h1>
+                    <template v-if="userIsCreator">
+                      <v-spacer></v-spacer>
+                      <app-edit-game-dialog :game="game"></app-edit-game-dialog>
+                    </template>
+                  </v-card-title>
+                </v-flex>
+              </v-layout>
+              <v-layout>
+                <v-flex xs6>
+                  <v-card-title>
+                    <h2 class="secondary--text">Game description</h2>
+                  </v-card-title>
+                  <v-card-text>{{ game.description }}</v-card-text>
+                </v-flex>
+                <v-flex xs6>
+                  <v-card-title>
+                    <h2 class="secondary--text">Who is playing</h2>
+                  </v-card-title>
+                  <v-card-text>{{ game.playersNumber }}</v-card-text>
+                </v-flex>
+              </v-layout>
             </v-flex>
-            <v-flex xs4>
-              <v-card-title>
-                <h2 class="secondary--text">Who is playing</h2>
-              </v-card-title>
-              <v-card-text>{{ game.playersNumber }}</v-card-text>
-            </v-flex>
-            <v-flex xs4>
-              <v-card-media src="http://via.placeholder.com/300x300" height="300" class="mr-4 mb-3"></v-card-media>
+            <v-flex xs4 class="pa-2">
+              <v-card-media src="http://via.placeholder.com/300x300" height="300"></v-card-media>
             </v-flex>
           </v-layout>
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn
-              flat
-              class="error"
+              outline
+              class="secondary--text"
               @click="registerUnregister"
               v-if="userIsAuthenticated && !userIsCreator"> {{ showRegister }}</v-btn>
           </v-card-actions>

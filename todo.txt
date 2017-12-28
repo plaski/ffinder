@@ -4,11 +4,11 @@ zapisywanie takze username;
 profil usera, mozliwosc edycji danych
 zmiana przechowywania firebase key i game id
 
-obrazek przy liscie gier;
 mapa przy pojedynczej grze;
 na stronie gry zmiana napisu 'zapisz sie na gre/zaloguj/edytuj'
 signIn to register gdy user nie jest zalogowany na widoku gry
-zmiana wygladu poszczegolnych stron
+nie mniej niz 1 i nie wiecej niz 20 graczy
+zablokowanie wczesniejszej godziny w dniu dzisiejszym
 
 wszedzie dolozyc ladowanie przed wyswietleniem zawartosci
 clearError sprobowac dodac globalnie

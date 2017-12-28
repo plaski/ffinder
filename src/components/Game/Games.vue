@@ -7,14 +7,12 @@
             <v-layout row>
               <v-flex xs7>
                 <v-card-title primary-title>
-                  <div>
-                    <h2 class="secondary--text">{{ game.location }} | {{ game.date | date }} | {{ game.time }}</h2>
-                  </div>
+                  <div class="headline">{{ game.location }}</div>
+                  <div class="headline">{{ game.date | date }}</div>
+                  <div class="headline">{{ game.time }}</div>
                 </v-card-title>
                 <v-card-text>
-                  <div>{{ game.description }}</div>
-                </v-card-text>
-                <v-card-text>
+                  <div class="mb-2">{{ game.description }}</div>
                   <div>Still {{ game.playersNumber }} <span v-if="game.playersNumber === '1'">place</span><span v-else>places</span> left!</div>
                 </v-card-text>
               </v-flex>
@@ -26,7 +24,7 @@
               <v-flex xs12>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn flat :to="'/games/' + game.id">View Game</v-btn>
+                  <v-btn outline :to="'/games/' + game.id">View Game</v-btn>
                   <!-- <v-btn flat class="error">Register!</v-btn> -->
                 </v-card-actions>
               </v-flex>

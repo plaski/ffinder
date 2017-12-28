@@ -87,9 +87,9 @@
               type="number"
               min="1"
               max="21"
-              label="Number of players"
+              label="Number of players (1-21)"
               prepend-icon="format_list_numbered"
-              :rules="[() => playersNumber % 1 === 0 || '']"
+              :rules="[() => (playersNumber % 1 === 0 && playersNumber > 0 && playersNumber < 22) || '']"
               v-model="playersNumber"
             ></v-text-field>
             <v-btn

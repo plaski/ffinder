@@ -100,4 +100,8 @@
   .slide-enter, .slide-leave-to {
     transform: translateX(150%) ;
   }
+
+  .headline {
+    width: 100%
+  }
 </style>
