@@ -20,6 +20,9 @@
           <v-card-text>
             <div>{{ game.description }}</div>
           </v-card-text>
+          <v-card-text>
+            <div>{{ game.playersNumber }}</div>
+          </v-card-text>
           <v-card-actions>
             <v-btn
               flat

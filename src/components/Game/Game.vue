@@ -23,6 +23,7 @@
           <v-layout>
             <v-flex xs8>
               <v-card-text>{{ game.description }}</v-card-text>
+              <v-card-text>{{ game.playersNumber }}</v-card-text>
             </v-flex>
             <v-flex xs4>
               <v-card-media src="http://via.placeholder.com/300x300" height="300" class="mr-4 mb-3"></v-card-media>

@@ -48,6 +48,7 @@ export default {
               date: obj[key].date,
               time: obj[key].time,
               description: obj[key].description,
+              playersNumber: obj[key].playersNumber,
               creatorId: obj[key].creatorId
             })
           }
@@ -65,6 +66,7 @@ export default {
         date: payload.date,
         time: payload.time,
         description: payload.description,
+        playersNumber: payload.playersNumber,
         creatorId: getters.user.id
       }
       firebase.database().ref('games').push(game)

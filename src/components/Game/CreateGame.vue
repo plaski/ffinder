@@ -82,6 +82,17 @@
               prepend-icon="description"
               v-model="description"
             ></v-text-field>
+            <v-text-field
+              name="playersNumber"
+              type="number"
+              min="1"
+              max="21"
+              value="1"
+              label="Number of players"
+              prepend-icon="format_list_numbered"
+              :rules="[() => playersNumber % 1 === 0 || '']"
+              v-model="playersNumber"
+            ></v-text-field>
             <v-btn
               class="secondary mt-3"
               :disabled="!formIsValid"
@@ -109,12 +120,13 @@ export default {
           return value % 15 === 0
         }
       },
-      timePicker: false
+      timePicker: false,
+      playersNumber: null
     }
   },
   computed: {
     formIsValid () {
-      return this.location !== '' && this.date !== '' && this.time !== '' && this.description !== ''
+      return this.location !== '' && this.date !== null && this.time !== null && this.description !== '' && this.playersNumber !== null
     }
   },
   methods: {
@@ -126,7 +138,8 @@ export default {
         location: this.location,
         date: this.date,
         time: this.time,
-        description: this.description
+        description: this.description,
+        playersNumber: this.playersNumber
       }
       this.$store.dispatch('createGame', gameData)
       this.$router.push('/games')

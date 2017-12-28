@@ -8,7 +8,7 @@ obrazek przy liscie gier;
 mapa przy pojedynczej grze;
 na stronie gry zmiana napisu 'zapisz sie na gre/zaloguj/edytuj'
 signIn to register gdy user nie jest zalogowany na widoku gry
-kasowanie gry
+zmiana wygladu poszczegolnych stron
 
 wszedzie dolozyc ladowanie przed wyswietleniem zawartosci
 clearError sprobowac dodac globalnie

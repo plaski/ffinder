@@ -14,6 +14,9 @@
                 <v-card-text>
                   <div>{{ game.description }}</div>
                 </v-card-text>
+                <v-card-text>
+                  <div>{{ game.playersNumber }}</div>
+                </v-card-text>
                 <v-card-actions>
                   <v-btn flat :to="'/games/' + game.id">View Game</v-btn>
                   <!-- <v-btn flat class="error">Register!</v-btn> -->
