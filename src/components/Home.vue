@@ -14,9 +14,9 @@
       <v-flex xs12 sm6 md4 v-for="(game, id) in games" :key="game.id">
         <v-card color="secondary" class="white--text">
           <v-card-title primary-title>
-            <div class="headline">{{ game.location }}</div>
-            <div class="headline">{{ game.date | date }}</div>
-            <div class="headline">{{ game.time }}</div>
+            <div class="headline headline--date">{{ game.location }}</div>
+            <div class="headline headline--date">{{ game.date | date }}</div>
+            <div class="headline headline--date">{{ game.time }}</div>
           </v-card-title>
           <v-divider class="grey darken-1"></v-divider>
           <v-card-text>

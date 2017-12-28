@@ -101,7 +101,7 @@
     transform: translateX(150%) ;
   }
 
-  .headline {
+  .headline--date {
     width: 100%
   }
 </style>

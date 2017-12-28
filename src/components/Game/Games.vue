@@ -7,9 +7,9 @@
             <v-layout row>
               <v-flex xs7>
                 <v-card-title primary-title>
-                  <div class="headline">{{ game.location }}</div>
-                  <div class="headline">{{ game.date | date }}</div>
-                  <div class="headline">{{ game.time }}</div>
+                  <div class="headline headline--date">{{ game.location }}</div>
+                  <div class="headline headline--date">{{ game.date | date }}</div>
+                  <div class="headline headline--date">{{ game.time }}</div>
                 </v-card-title>
                 <v-card-text>
                   <div class="mb-2">{{ game.description }}</div>

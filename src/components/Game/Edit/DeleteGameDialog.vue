@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-dialog width="250px" persistent v-model="dialogIsOpen">
+    <v-dialog width="280px" persistent v-model="dialogIsOpen">
       <v-btn
         outline
         class="error--text"
