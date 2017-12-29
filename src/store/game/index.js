@@ -139,6 +139,9 @@ export default {
           return game.id === gameId
         })
       }
+    },
+    games (state) {
+      return state.loadedGames
     }
   }
 }

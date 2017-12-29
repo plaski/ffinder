@@ -8,7 +8,9 @@ import Profile from '@/components/User/Profile'
 import Signin from '@/components/User/Signin'
 import Signup from '@/components/User/Signup'
 import Game from '@/components/Game/Game'
+import Deadend from '@/components/Shared/Deadend'
 import AuthGuard from './auth-guard'
+import GameIdGuard from './gameId-guard'
 
 Vue.use(Router)
 
@@ -35,7 +37,8 @@ const router = new Router({
       path: '/games/:gameId',
       name: 'Game',
       props: true,
-      component: Game
+      component: Game,
+      beforeEnter: GameIdGuard
     },
     {
       path: '/profile',
@@ -52,6 +55,11 @@ const router = new Router({
       path: '/signup',
       name: 'Signup',
       component: Signup
+    },
+    {
+      path: '*',
+      name: 'Deadend',
+      component: Deadend
     }
   ]
 })
