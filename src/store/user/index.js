@@ -34,10 +34,14 @@ export default {
           user => {
             commit('setLoading', false)
             const newUser = {
+              username: payload.username,
+              email: payload.email,
               id: user.uid,
               registeredGames: [],
               fbKeys: {}
             }
+            firebase.database().ref('users/' + newUser.id).set(newUser)
+            console.log(user)
             commit('setUser', newUser)
           }
         )
@@ -54,27 +58,41 @@ export default {
         .then(
           user => {
             commit('setLoading', false)
-            const newUser = {
-              id: user.uid,
-              registeredGames: [],
-              fbKeys: {}
-            }
-            commit('setUser', newUser)
-          }
-        )
+            firebase.database().ref('/users/' + user.uid).once('value')
+              .then(data => {
+                const userData = data.val()
+                const gamesData = userData.registeredGames
+                let registeredGames = []
+                let swappedGamesData = {}
+                if (gamesData) {
+                  for (let key in gamesData) {
+                    registeredGames.push(gamesData[key])
+                    swappedGamesData[gamesData[key]] = key
+                  }
+                }
+                const newUser = {
+                  username: userData.username,
+                  email: userData.email,
+                  id: user.uid,
+                  registeredGames: registeredGames,
+                  fbKeys: swappedGamesData
+                }
+                commit('setUser', newUser)
+              })
+          })
         .catch(error => {
           commit('setLoading', false)
           commit('setError', error)
           console.log(error)
         })
     },
-    autoSignIn ({commit}, payload) {
-      commit('setUser', {
-        id: payload.uid,
-        registeredGames: [],
-        fbKeys: {}
-      })
-    },
+    // autoSignIn ({commit}, payload) {
+    //   commit('setUser', {
+    //     id: payload.uid,
+    //     registeredGames: [],
+    //     fbKeys: {}
+    //   })
+    // },
     registerUserForGame ({commit, getters}, payload) {
       commit('setLoading', true)
       const user = getters.user
@@ -109,30 +127,30 @@ export default {
           console.log(error)
         })
     },
-    fetchUserData ({commit, getters}) {
-      commit('setLoading', true)
-      firebase.database().ref('/users/' + getters.user.id + '/registeredGames').once('value')
-        .then(data => {
-          const gamesData = data.val()
-          let registeredGames = []
-          let swappedGamesData = {}
-          for (let key in gamesData) {
-            registeredGames.push(gamesData[key])
-            swappedGamesData[gamesData[key]] = key
-          }
-          const newUser = {
-            id: getters.user.id,
-            registeredGames: registeredGames,
-            fbKeys: swappedGamesData
-          }
-          commit('setLoading', false)
-          commit('setUser', newUser)
-        })
-        .catch(error => {
-          commit('setLoading', false)
-          console.log(error)
-        })
-    },
+    // fetchUserData ({commit, getters}) {
+    //   commit('setLoading', true)
+    //   firebase.database().ref('/users/' + getters.user.id + '/registeredGames').once('value')
+    //     .then(data => {
+    //       const gamesData = data.val()
+    //       let registeredGames = []
+    //       let swappedGamesData = {}
+    //       for (let key in gamesData) {
+    //         registeredGames.push(gamesData[key])
+    //         swappedGamesData[gamesData[key]] = key
+    //       }
+    //       const newUser = {
+    //         id: getters.user.id,
+    //         registeredGames: registeredGames,
+    //         fbKeys: swappedGamesData
+    //       }
+    //       commit('setLoading', false)
+    //       commit('setUser', newUser)
+    //     })
+    //     .catch(error => {
+    //       commit('setLoading', false)
+    //       console.log(error)
+    //     })
+    // },
     logout ({commit}) {
       commit('setLoading', true)
       firebase.auth().signOut()
